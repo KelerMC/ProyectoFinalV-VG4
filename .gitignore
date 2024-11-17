@@ -1,0 +1,20 @@
+# Archivos y carpetas del IDE
+nbproject/private/
+.metadata/
+*.log
+
+# Archivos generados automáticamente
+build/
+dist/
+target/
+*.class
+
+# Configuración de entornos específicos
+*.properties
+*.iml
+.idea/
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
