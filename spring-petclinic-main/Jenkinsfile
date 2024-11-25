@@ -26,7 +26,7 @@ pipeline {
         }
         stage("SonarQube Analysis") {
             steps {
-                echo "SonarQube Analysis skipped"
+                //echo "SonarQube Analysis skipped"
                 
                 bat "$SCANNER_HOME/bin/sonar-scanner -Dsonar.url=http://localhost:9000/ \
                     -Dsonar.login=squ_f98ffa7978805dd40117bf4113272c66f6164f59 \
@@ -51,7 +51,19 @@ pipeline {
                 bat "mvn -f spring-petclinic-main spring-boot:build-image -Dcheckstyle.skip=true -DskipTests"
                 bat "docker run -d -p 9090:9090 --name spring-petclinic-container spring-petclinic:3.3.0-SNAPSHOT"
                 sleep(time: 40, unit: "SECONDS")
-                bat "docker stop spring-petclinic-container "
+            }
+        }
+		stage("Performance Testing with JMeter") {
+			steps {
+				dir('spring-petclinic-main/src/test/jmeter') {
+					bat 'jmeter -n -t petclinic_test_plan.jmx -l results.jtl'
+					bat 'jmeter -g results.jtl -o ../../../../report'
+				}
+			}
+		}
+		stage("Stop Container") {
+            steps {
+                bat "docker stop spring-petclinic-container"
                 bat "docker rm spring-petclinic-container"
             }
         }
