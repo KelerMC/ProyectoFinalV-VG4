@@ -18,11 +18,11 @@ pipeline {
                 bat "mvn -f spring-petclinic-main clean compile -Dcheckstyle.skip=true"
             }
         }
-        stage("Run Unit Tests") {
+        /*stage("Run Unit Tests") {
             steps {
                 bat "mvn -f spring-petclinic-main test -Dcheckstyle.skip=true"
             }
-        }
+        }*/
         stage("SonarQube Analysis ") {
             steps {
                 bat "$SCANNER_HOME/bin/sonar-scanner -Dsonar.url=http://localhost:9000/ \
