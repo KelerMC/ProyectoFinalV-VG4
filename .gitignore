@@ -10,7 +10,7 @@ target/
 *.class
 
 # Configuración de entornos específicos
-*.properties
+
 *.iml
 .idea/
 .vscode/
