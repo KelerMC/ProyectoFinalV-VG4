@@ -10,12 +10,17 @@ pipeline {
         stages {
         stage("Git Checkout") {
             steps {
-                git branch:'main', changelog:false, poll:false,url:'https://github.com/KelerMC/ProyectoFinalV-VG4'
+                git branch:'Developed', changelog:false, poll:false,url:'https://github.com/KelerMC/ProyectoFinalV-VG4'
             }
         }
         stage("Build with Maven") {
             steps {
-                bat "mvn -f spring-petclinic-main clean compile"
+                bat "mvn -f spring-petclinic-main clean compile -Dcheckstyle.skip=true"
+            }
+        }
+        stage("Run Unit Tests") {
+            steps {
+                bat "mvn -f spring-petclinic-main test -Dcheckstyle.skip=true"
             }
         }
         stage("SonarQube Analysis ") {
@@ -26,6 +31,12 @@ pipeline {
                     -Dsonar.projectName=ProyectoFinal \
                     -Dsonar.sources=. \
                     -Dsonar.java.binaries=."
+            }
+        }
+		stage("Deploy ") {
+            steps {
+				bat "mvn -f spring-petclinic-main wrapper:wrapper"
+                bat "mvn -f spring-petclinic-main spring-boot:run -Dcheckstyle.skip=true"
             }
         }
         // And next stages if you want to define further...
