@@ -10,7 +10,7 @@ target/
 *.class
 
 # Configuración de entornos específicos
-*.properties
+
 *.iml
 .idea/
 .vscode/
@@ -62,5 +62,4 @@ out/
 
 ### CSS ###
 _site/
-*.css
-!petclinic.css
+
