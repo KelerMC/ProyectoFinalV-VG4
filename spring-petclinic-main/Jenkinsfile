@@ -20,23 +20,39 @@ pipeline {
         }
         stage("Run Unit Tests") {
             steps {
+                //echo "Unit Tests skipped"
                 bat "mvn -f spring-petclinic-main test -Dcheckstyle.skip=true"
             }
         }
-        stage("SonarQube Analysis ") {
+        stage("SonarQube Analysis") {
             steps {
+                echo "SonarQube Analysis skipped"
+                
                 bat "$SCANNER_HOME/bin/sonar-scanner -Dsonar.url=http://localhost:9000/ \
                     -Dsonar.login=squ_f98ffa7978805dd40117bf4113272c66f6164f59 \
                     -Dsonar.projectKey=ProyectoFinal \
                     -Dsonar.projectName=ProyectoFinal \
                     -Dsonar.sources=. \
                     -Dsonar.java.binaries=."
+                
             }
         }
 		stage("Deploy ") {
             steps {
-				bat "mvn -f spring-petclinic-main wrapper:wrapper"
-                bat "mvn -f spring-petclinic-main spring-boot:run -Dcheckstyle.skip=true"
+                echo "Maven deploy skipped"
+				//bat "mvn -f spring-petclinic-main wrapper:wrapper"
+                //bat "mvn -f spring-petclinic-main spring-boot:run -Dcheckstyle.skip=true"
+            }
+        }
+        stage("Deploy with Docker"){
+            steps {
+                //echo "Docker deploy skipped"
+                bat "mvn -f spring-petclinic-main clean package -Dcheckstyle.skip=true -DskipTests"
+                bat "mvn -f spring-petclinic-main spring-boot:build-image -Dcheckstyle.skip=true -DskipTests"
+                bat "docker run -d -p 9090:9090 --name spring-petclinic-container spring-petclinic:3.3.0-SNAPSHOT"
+                sleep(time: 40, unit: "SECONDS")
+                bat "docker stop spring-petclinic-container "
+                bat "docker rm spring-petclinic-container"
             }
         }
         // And next stages if you want to define further...
