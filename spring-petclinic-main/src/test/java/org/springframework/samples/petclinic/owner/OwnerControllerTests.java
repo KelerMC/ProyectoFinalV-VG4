@@ -52,8 +52,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Test class for {@link OwnerController}
  *
- * @author Colin But
- * @author Wick Dynex
+ * @author keler
  */
 @WebMvcTest(OwnerController.class)
 @DisabledInNativeImage
