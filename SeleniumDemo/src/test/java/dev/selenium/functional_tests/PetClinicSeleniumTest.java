@@ -10,11 +10,10 @@ import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.assertj.core.api.Assertions.assertThat;
 
-public class PetClinicSeleniumTest {
+
+class PetClinicSeleniumTest {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
@@ -36,7 +35,7 @@ public class PetClinicSeleniumTest {
 	// Test para crear un dueño
 	@Test
 	void testCreateOwnerValid() {
-		driver.get("http://localhost:8080/owners/new");
+		driver.get("http://localhost:9090/owners/new");
 
 		WebElement firstName = driver.findElement(By.name("firstName"));
 		WebElement lastName = driver.findElement(By.name("lastName"));
@@ -60,7 +59,7 @@ public class PetClinicSeleniumTest {
 	// Test para agregar una mascota a un dueño
 	@Test
 	void testAddPetToOwner() {
-	    driver.get("http://localhost:8080/owners/1");
+	    driver.get("http://localhost:9090/owners/1");
 
 	    // Espera explícita para el botón "Add New Pet" y hacer clic en él
 	    WebElement addNewPetButton = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Add New Pet")));
