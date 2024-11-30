@@ -61,6 +61,12 @@ pipeline {
 				}
 			}
 		}
+		stage("Selenium Test") {
+		    steps {
+		        //echo "Selenium skipped"
+				bat "mvn -f SeleniumDemo test"
+		    }
+		}
 		stage("Stop Container") {
             steps {
                 bat "docker stop spring-petclinic-container"
