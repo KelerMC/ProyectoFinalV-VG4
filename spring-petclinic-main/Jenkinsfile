@@ -32,7 +32,7 @@ pipeline {
                     -Dsonar.login=squ_f98ffa7978805dd40117bf4113272c66f6164f59 \
                     -Dsonar.projectKey=ProyectoFinal \
                     -Dsonar.projectName=ProyectoFinal \
-                    -Dsonar.sources=. \
+                    -Dsonar.sources=spring-petclinic-main/src/main/java \
                     -Dsonar.java.binaries=."
                 
             }
@@ -60,6 +60,12 @@ pipeline {
 					bat 'jmeter -g results.jtl -o ../../../../report'
 				}
 			}
+		}
+		stage("Selenium Test") {
+		    steps {
+		        //echo "Selenium skipped"
+				bat "mvn -f SeleniumDemo test"
+		    }
 		}
 		stage("Stop Container") {
             steps {
