@@ -6,6 +6,8 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
+        ZAP_PATH = 'C:/Program Files/ZAP/Zed Attack Proxy/zap-2.15.0.jar'
+		TARGET_URL = 'http://localhost:9090/'
     }
         stages {
         stage("Git Checkout") {
@@ -15,6 +17,7 @@ pipeline {
         }
         stage("Build with Maven") {
             steps {
+                //echo "Build skipped"
                 bat "mvn -f spring-petclinic-main clean compile -Dcheckstyle.skip=true"
             }
         }
@@ -46,29 +49,41 @@ pipeline {
         }
         stage("Deploy with Docker"){
             steps {
-                //echo "Docker deploy skipped"
+                echo "Docker deploy skipped"
+                
                 bat "mvn -f spring-petclinic-main clean package -Dcheckstyle.skip=true -DskipTests"
                 bat "mvn -f spring-petclinic-main spring-boot:build-image -Dcheckstyle.skip=true -DskipTests"
                 bat "docker run -d -p 9090:9090 --name spring-petclinic-container spring-petclinic:3.3.0-SNAPSHOT"
                 sleep(time: 40, unit: "SECONDS")
+                
             }
         }
 		stage("Performance Testing with JMeter") {
 			steps {
+			    //echo "JMeter skipped"
+			    
 				dir('spring-petclinic-main/src/test/jmeter') {
 					bat 'jmeter -n -t petclinic_test_plan.jmx -l results.jtl'
-					bat 'jmeter -g results.jtl -o ../../../../report'
+					bat 'jmeter -g results.jtl -o ./report/'
 				}
+				
 			}
 		}
 		stage("Selenium Test") {
 		    steps {
 		        //echo "Selenium skipped"
-				bat "mvn -f SeleniumDemo test"
+		        bat "mvn -f SeleniumDemo test"
+		    }
+		}
+		stage("ZAP Auto-Scan") {
+		    steps {
+		        //echo "ZAP skipped"
+				bat "java -Xmx512m -jar \"${ZAP_PATH}\" -cmd -quickurl ${TARGET_URL} -quickout ./zap.html"
 		    }
 		}
 		stage("Stop Container") {
             steps {
+                //echo "End"
                 bat "docker stop spring-petclinic-container"
                 bat "docker rm spring-petclinic-container"
             }
