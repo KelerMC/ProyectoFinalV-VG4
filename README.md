@@ -6,6 +6,25 @@
 - Francesco Abad
 - Luis Sifuentes
 - Diego D.
+# PetClinic Automation Testing Project
+
+## Propósito del Proyecto
+
+El propósito de este proyecto es realizar pruebas automatizadas sobre el sistema **PetClinic** utilizando una combinación de herramientas de pruebas y análisis, como **JUnit**, **Selenium**, **SonarQube**, **JMeter**, **OWASP ZAP** y **Jenkins**. Este proyecto tiene como objetivo asegurar la calidad del código y verificar el correcto funcionamiento de las funcionalidades del sistema PetClinic a través de pruebas de seguridad, rendimiento, funcionalidad y análisis estático.
+
+---
+## Objetivos
+
+El objetivo de este proyecto es implementar un pipeline de integración continua y entrega continua (CI/CD) que permita realizar las siguientes actividades:
+
+- Realizar pruebas unitarias para verificar el funcionamiento correcto de las funcionalidades.
+- Realizar pruebas funcionales para asegurar que las funcionalidades del sistema trabajen según lo esperado.
+- Ejecutar pruebas de seguridad usando herramientas como **OWASP ZAP**.
+- Ejecutar pruebas de rendimiento utilizando **JMeter**.
+- Integrar todo el flujo de pruebas y análisis en un **pipeline de Jenkins**.
+- Análisis estático del código con **SonarQube**.
+
+---
 
 
 ### Modificaciones para mantenibilidad y consistencia basados en el análisis de Sonar
