@@ -26,24 +26,24 @@ El objetivo de este proyecto es implementar un pipeline de integración continua
 ---
 
 ## Funcionalidades Principales
-- **Agregar Dueño**
+**Agregar Dueño**
 
 ![agregarDueño](Documentacion/capturas/agregarDueño.jpg)
-- **Agregar Mascota**
+**Agregar Mascota**
 
 ![agregarMascota](Documentacion/capturas/agregarMascota.jpg)
-- **Encontrar dueño**
+**Encontrar dueño**
 
 ![encontrar_dueños](Documentacion/capturas/encontrar_dueños.jpg)
 ![listaDueños](Documentacion/capturas/listaDueños.jpg)
 ![encontrarDueño](Documentacion/capturas/encontrarDueño.jpg)
-- **Agregar Visita**
+**Agregar Visita**
 
 ![agregarVisita](Documentacion/capturas/agregarVisita.jpg)
-- **Actualizar los datos de la mascota**
+**Actualizar los datos de la mascota**
 
 ![actualizarDatosMascota](Documentacion/capturas/actualizarDatosMascota.jpg)
-- **Buscador de veterinarios**
+**Buscador de veterinarios**
 
 ![listaVeterinarios](Documentacion/capturas/listaVeterinarios.jpg)
 
