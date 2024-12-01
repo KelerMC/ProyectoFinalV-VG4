@@ -1,8 +1,7 @@
 # ProyectoFinalV-VG4
-
 ### Integrantes:
-- Keler Modesto Calixro
-- Angelou Villar Arias
+- Keler Modesto Calixto
+- Angelo Villar Arias
 - Francesco Abad
 - Luis Sifuentes
 - Diego D.
