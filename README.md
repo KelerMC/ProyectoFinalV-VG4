@@ -31,21 +31,21 @@ El objetivo de este proyecto es implementar un pipeline de integración continua
 ![agregarDueño](Documentacion/Capturas/agregarDueño.jpg)
 - **Agregar Mascota**
 
-![agregarMascota](Documentacion/capturas/agregarMascota.jpg)
+![agregarMascota](Documentacion/Capturas/agregarMascota.jpg)
 - **Encontrar dueño**
 
-![encontrar_dueños](Documentacion/capturas/encontrar_dueños.jpg)
-![listaDueños](Documentacion/capturas/listaDueños.jpg)
-![encontrarDueño](Documentacion/capturas/encontrarDueño.jpg)
+![encontrar_dueños](Documentacion/Capturas/encontrar_dueños.jpg)
+![listaDueños](Documentacion/Capturas/listaDueños.jpg)
+![encontrarDueño](Documentacion/Capturas/encontrarDueño.jpg)
 - **Agregar Visita**
 
-![agregarVisita](Documentacion/capturas/agregarVisita.jpg)
+![agregarVisita](Documentacion/Capturas/agregarVisita.jpg)
 - **Actualizar los datos de la mascota**
 
-![actualizarDatosMascota](Documentacion/capturas/actualizarDatosMascota.jpg)
+![actualizarDatosMascota](Documentacion/Capturas/actualizarDatosMascota.jpg)
 - **Buscador de veterinarios**
 
-![listaVeterinarios](Documentacion/capturas/listaVeterinarios.jpg)
+![listaVeterinarios](Documentacion/Capturas/listaVeterinarios.jpg)
 
 ---
 ## Pipeline
