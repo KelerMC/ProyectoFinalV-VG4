@@ -72,7 +72,6 @@ El objetivo de este proyecto es implementar un pipeline de integración continua
     ```
 
 - **JUnit**: Utilizado para las pruebas unitarias.
-  
 ![14](Documentacion/Capturas/junit.jpg)
   - **Evidencia**:
     ```java
