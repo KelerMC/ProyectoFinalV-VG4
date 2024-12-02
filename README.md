@@ -5,6 +5,8 @@
 - Francesco Abad
 - Luis Sifuentes
 - Diego D.
+- Luis A. Valle Atencio
+
 # PetClinic Automation Testing Project
 
 ## Propósito del Proyecto
