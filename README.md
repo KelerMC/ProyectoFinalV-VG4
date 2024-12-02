@@ -3,7 +3,6 @@
 - Keler Modesto Calixto
 - Angelo Villar Arias
 - Francesco Abad
-- Luis Sifuentes
 - Diego D.
 - Luis A. Valle Atencio
 
